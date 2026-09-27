@@ -1,0 +1,47 @@
+{
+    "anova_airline_complexity": {
+        "test": "One-Way ANOVA",
+        "groups": [
+            "OO",
+            "UA",
+            "G7",
+            "YX"
+        ],
+        "f_statistic": 662.3894,
+        "p_value": 0.0,
+        "statistically_significant": true,
+        "eta_squared_effect_size": 0.1971,
+        "kruskal_wallis_h_statistic": 1661.8568,
+        "kruskal_wallis_p_value": 0.0,
+        "interpretation": "Rejects null hypothesis: Flight complexity distributions vary significantly across airline carriers."
+    },
+    "chi_square_airline_vs_class": {
+        "test": "Chi-Square Test of Independence",
+        "chi2_statistic": 1292.9839,
+        "p_value": 3.5773228316555726e-276,
+        "degrees_of_freedom": 6,
+        "cramers_v": 0.2825,
+        "statistically_significant": true,
+        "contingency_table": {
+            "Easy": {
+                "G7": 486,
+                "OO": 1055,
+                "UA": 665,
+                "YX": 288
+            },
+            "Hard": {
+                "G7": 8,
+                "OO": 45,
+                "UA": 334,
+                "YX": 3
+            },
+            "Medium": {
+                "G7": 365,
+                "OO": 1031,
+                "UA": 3503,
+                "YX": 316
+            }
+        },
+        "interpretation": "Rejects null hypothesis: Complexity tier assignment is strongly dependent on airline operator."
+    }
+}
