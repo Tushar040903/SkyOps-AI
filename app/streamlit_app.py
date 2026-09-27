@@ -13,6 +13,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import joblib
+from PIL import Image
 
 # Add project root to path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -94,6 +95,24 @@ def load_models():
     kmeans = joblib.load(kmeans_path) if kmeans_path.exists() else None
 
     return classifier, pre_dep, kmeans
+
+def render_image(img_path, caption=None):
+    """Render image safely across all modern and legacy Streamlit versions without TypeError."""
+    p = Path(img_path)
+    if not p.exists():
+        st.info(f"Visual asset: {caption}")
+        return
+    try:
+        img = Image.open(p)
+        try:
+            st.image(img, caption=caption, use_container_width=True)
+        except TypeError:
+            try:
+                st.image(img, caption=caption, width="stretch")
+            except TypeError:
+                st.image(img, caption=caption)
+    except Exception as e:
+        st.warning(f"Could not render visual: {e}")
 
 df = load_data()
 classifier_meta, pre_dep_meta, kmeans_meta = load_models()
@@ -322,20 +341,17 @@ elif menu == "SHAP Explainability & Weights":
             "Using TreeSHAP on 8,099 flights, we scientifically validated the true empirical feature contributions."
         )
         weights_img = FIGURES_DIR / "data_driven_vs_heuristic_weights.png"
-        if weights_img.exists():
-            st.image(str(weights_img), caption="Comparison of Heuristic Weights vs Learned TreeSHAP Attribution", use_column_width=True)
+        render_image(weights_img, caption="Comparison of Heuristic Weights vs Learned TreeSHAP Attribution")
 
     with tab2:
         st.subheader("🐝 Global SHAP Beeswarm & Top Operational Factors")
         col_s1, col_s2 = st.columns(2)
         with col_s1:
             bar_img = FIGURES_DIR / "shap_feature_importance_bar.png"
-            if bar_img.exists():
-                st.image(str(bar_img), caption="Top 20 Operational Drivers", use_column_width=True)
+            render_image(bar_img, caption="Top 20 Operational Drivers")
         with col_s2:
             beeswarm_img = FIGURES_DIR / "shap_summary_beeswarm.png"
-            if beeswarm_img.exists():
-                st.image(str(beeswarm_img), caption="TreeSHAP Beeswarm Plot (Directional Impact on High Complexity)", use_column_width=True)
+            render_image(beeswarm_img, caption="TreeSHAP Beeswarm Plot (Directional Impact on High Complexity)")
 
     with tab3:
         st.subheader("🔍 Local Flight Waterfall Explanations")
@@ -343,16 +359,13 @@ elif menu == "SHAP Explainability & Weights":
         col_w1, col_w2, col_w3 = st.columns(3)
         with col_w1:
             img_easy = FIGURES_DIR / "shap_waterfall_easy.png"
-            if img_easy.exists():
-                st.image(str(img_easy), caption="Easy Flight Breakdown", use_column_width=True)
+            render_image(img_easy, caption="Easy Flight Breakdown")
         with col_w2:
             img_med = FIGURES_DIR / "shap_waterfall_medium.png"
-            if img_med.exists():
-                st.image(str(img_med), caption="Medium Flight Breakdown", use_column_width=True)
+            render_image(img_med, caption="Medium Flight Breakdown")
         with col_w3:
             img_hard = FIGURES_DIR / "shap_waterfall_hard.png"
-            if img_hard.exists():
-                st.image(str(img_hard), caption="High Complexity Flight Breakdown", use_column_width=True)
+            render_image(img_hard, caption="High Complexity Flight Breakdown")
 
 # -------------------------------------------------------------
 # Module 4: Route Risk & Network Clusters
@@ -364,8 +377,7 @@ elif menu == "Route Risk & Network Clusters":
     col_cl1, col_cl2 = st.columns([1.3, 1])
     with col_cl1:
         cluster_img = FIGURES_DIR / "route_clusters_kmeans.png"
-        if cluster_img.exists():
-            st.image(str(cluster_img), caption="Unsupervised Route Clustering (k=3 Archetypes)", use_column_width=True)
+        render_image(cluster_img, caption="Unsupervised Route Clustering (k=3 Archetypes)")
 
     with col_cl2:
         st.markdown("#### 🧪 Statistical Hypothesis Testing")
