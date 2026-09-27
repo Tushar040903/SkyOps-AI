@@ -2,11 +2,14 @@
 ### *Predictive Operational Intelligence & Turnaround Failure Early-Warning for Commercial Airline Fleets*
 
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Live App](https://img.shields.io/badge/Live%20Demo-skyops--ai.streamlit.app-FF4B4B?logo=streamlit&logoColor=white)](https://skyops-ai.streamlit.app/)
 [![ML Framework](https://img.shields.io/badge/LightGBM%20%7C%20XGBoost-1.4%2B-FF6F00?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Explainability](https://img.shields.io/badge/Explainability-TreeSHAP-008080)](https://shap.readthedocs.io/)
-[![Dashboard](https://img.shields.io/badge/Interactive%20App-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Competition](https://img.shields.io/badge/Developed%20For-United%20Airlines%20Skyhack-002244)](https://www.united.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+> 🌐 **Live Operations Dashboard:** [**https://skyops-ai.streamlit.app/**](https://skyops-ai.streamlit.app/)  
+> *Monitored 24/7 with automated health checks — instant loading with live flight simulation, risk gauge alerts, and TreeSHAP waterfall diagnostics.*
 
 ---
 
@@ -223,7 +226,9 @@ $$\text{Total Economic Impact} = 8,048 \times \$101.40 = \mathbf{\$816,067}$$
 
 ## 🚀 Interactive Streamlit Operations Dashboard
 
-The repository includes a production-ready interactive web application for airline station managers and dispatchers.
+🌐 **Live Cloud Application:** [**https://skyops-ai.streamlit.app/**](https://skyops-ai.streamlit.app/) *(Monitored 24/7 with zero cold-start delay)*
+
+The repository includes a production-ready interactive web application for airline station managers and dispatchers. To run locally:
 
 ```bash
 # Launch the SkyOps AI operations dashboard
