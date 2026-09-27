@@ -241,7 +241,7 @@ streamlit run app/streamlit_app.py
 ## 📁 Repository Directory Structure
 
 ```
-Flight-Complexity-Analysis-and-Prediction/
+SkyOps-AI/
 ├── README.md                              # Executive & Technical System Documentation
 ├── requirements.txt                        # Clean pinned dependencies
 ├── .gitignore                             # Python, Jupyter & Environment exclusions
@@ -311,8 +311,8 @@ Flight-Complexity-Analysis-and-Prediction/
 
 ### 1. Clone the Repository & Set Up Environment
 ```bash
-git clone https://github.com/Tushar040903/Flight-Complexity-Analysis-and-Prediction.git
-cd Flight-Complexity-Analysis-and-Prediction
+git clone https://github.com/Tushar040903/SkyOps-AI.git
+cd SkyOps-AI
 
 # Create and activate virtual environment (optional)
 python -m venv venv
@@ -351,17 +351,6 @@ streamlit run app/streamlit_app.py
 jupyter notebook notebooks/
 ```
 
----
-
-## 🏆 Key DS & Analytics Resume Takeaways
-
-This upgraded project demonstrates proficiency across the core competencies required for senior Data Science, Machine Learning, and Operations Research roles:
-- **Predictive vs. Descriptive Modeling**: Shifted post-hoc scoring into a pre-departure forecasting early-warning system.
-- **TreeSHAP Explainability**: Validated and challenged heuristic assumptions with empirical feature attribution.
-- **Statistical Rigor**: Applied One-Way ANOVA, Kruskal-Wallis, and Chi-Square tests to ensure statistical validity.
-- **Class Imbalance & Threshold Tuning**: Calibrated decision thresholds for operational dispatch cost trade-offs.
-- **Production Software Engineering**: Modular clean architecture, type annotations, automated logging, and an interactive dashboard.
-- **Quantifiable Business Value**: Directly translated machine learning metrics into airline delay cost savings ($800K+).
 
 ---
 
